@@ -1,7 +1,10 @@
 const images = [
-  "images/img1.jpg",
-  "images/img2.jpg",
-  "images/img3.jpg"
+  "images/image1.jpg",
+  "images/image2.jpg",
+  "images/image3.jpg",
+  "images/image4.jpg",
+  "images/image5.jpg",
+  "images/image6.jpg"
 ];
 
 function showImages() {
