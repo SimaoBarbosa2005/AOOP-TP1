@@ -3,22 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard de Imagens</title>
+  <title>Data Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="sidebar">
-    <h2>Menu</h2>
-    <ul>
-      <li><a href="#" onclick="showImages()">Galeria</a></li>
-      <li><a href="#">Outra Página</a></li>
-      <li><a href="#">Configurações</a></li>
-    </ul>
+    <div class="sidebar-logo">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">DataViz</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Views</div>
+      <ul>
+        <li class="active">
+          <a href="#" onclick="filterImages('all'); setActive(this)">
+            <span class="nav-icon">⬡</span> Todas
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="filterImages('dist'); setActive(this)">
+            <span class="nav-icon">◻</span> Distribuições
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="filterImages('cluster'); setActive(this)">
+            <span class="nav-icon">◈</span> Clusters
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="filterImages('stats'); setActive(this)">
+            <span class="nav-icon">◇</span> Estatísticas
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-section-label">Options</div>
+      <ul>
+        <li><a href="#"><span class="nav-icon">◎</span> Configurações</a></li>
+        <li><a href="#"><span class="nav-icon">○</span> Exportar</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-dot"></div>
+      <span>10 análises carregadas</span>
+    </div>
   </div>
 
   <div class="main-content">
-    <h1>Dashboard de Imagens</h1>
-    <div id="gallery" class="gallery"></div>
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Dashboard <span class="accent">Analítico</span></h1>
+        <p class="subtitle">Visualização exploratória de dados</p>
+      </div>
+      <div class="topbar-right">
+        <div class="stat-chip"><span class="chip-val">10</span> imagens</div>
+        <div class="stat-chip"><span class="chip-val">6</span> categorias</div>
+      </div>
+    </header>
+
+    <div class="gallery-grid" id="gallery"></div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
